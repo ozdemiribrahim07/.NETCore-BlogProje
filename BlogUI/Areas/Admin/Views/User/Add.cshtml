@@ -1,0 +1,36 @@
+﻿
+@model BlogEntity.Concrete.User
+
+
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+
+<h2>Yeni Kullanıcı Ekle</h2>
+<br />
+
+
+@using (Html.BeginForm("Add", "User", FormMethod.Post))
+{
+    <h4>Kullanıcı Adı</h4>
+    @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.UserName, "", new { @class = "text-danger" })
+    <br />
+    <h4>Mail Adresi</h4>
+    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Email, "", new { @class = "text-danger" })
+    <br />
+    <h4>Şifre</h4>
+    @Html.PasswordFor(x=>x.Password, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Password, "", new { @class = "text-danger" })
+    <br />
+
+    <button class="btn btn-info">Yeni Kullanıcı Ekle</button>
+    <input type="button" class="btn btn-danger" value="Geri Dön" onclick="location.href = '@Url.Action("Index","User")'" />
+
+
+}
+

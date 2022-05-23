@@ -1,0 +1,24 @@
+﻿@using BlogEntity.Concrete
+@model List<Article>
+
+@foreach (var item in Model)
+{
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
+
+
+
+        <div class="tm-content-box">
+
+
+            <img src="@item.ArticleImage" alt="Image" class="tm-margin-b-20 img-fluid">
+            <h4 class="tm-margin-b-20 tm-gold-text">@item.ArticleTitle</h4>
+            <p class="tm-margin-b-20">
+                @item.ArticleContent.Substring(0,item.ArticleContent.Substring(0,100).LastIndexOf(" "))..
+            </p>
+            <a href="/Article/ArticleDetails/@item.ArticleId/" class="tm-btn text-md-center">Devamını Oku</a>
+
+        </div>
+
+
+    </div>
+}

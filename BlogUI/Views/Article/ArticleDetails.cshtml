@@ -1,0 +1,122 @@
+﻿@model IEnumerable<BlogEntity.Concrete.Article>
+
+
+
+
+@{
+    ViewData["Title"] = "ArticleDetails";
+    Layout = "~/Views/Shared/AnaLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">
+    <link rel="stylesheet" href="/template/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/template/css/templatemo-style.css">
+</head>
+
+<body>
+
+
+
+
+    <section class="tm-section">
+        <div class="container-fluid">
+            <div class="row">
+
+
+                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 col-xl-9">
+                    @foreach (var item in Model)
+                    {
+
+
+                        <div class="tm-blog-post">
+                            <h1 class="tm-gold-text">@item.ArticleTitle</h1>
+                            <img src="@item.ArticleImage" alt="Image" class="img-fluid tm-img-post">
+
+                            <p>@item.ArticleContent</p>
+
+
+                        </div>
+
+
+
+                    }
+                <br />
+
+                    @await Component.InvokeAsync("CommentListByArticle", new { id = ViewBag.c })
+
+                    <br />
+
+                    @await Html.PartialAsync("AddComment")
+
+                    <div class="row tm-margin-t-big">
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+
+                            <div class="tm-content-box">
+                                <img src="/template/img/tm-img-310x180-1.jpg" alt="Image" class="tm-margin-b-30 img-fluid">
+                                <h4 class="tm-margin-b-20 tm-gold-text">Lorem ipsum dolor #1</h4>
+                                <p class="tm-margin-b-20">
+                                    Aenean cursus tellus mauris, quis
+                                    consequat mauris dapibus id. Donec
+                                    scelerisque porttitor pharetra
+                                </p>
+                                <a href="#" class="tm-btn text-uppercase">Detail</a>
+                            </div>
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+
+                            <div class="tm-content-box">
+                                <img src="/template/img/tm-img-310x180-2.jpg" alt="Image" class="tm-margin-b-30 img-fluid">
+                                <h4 class="tm-margin-b-20 tm-gold-text">Lorem ipsum dolor #2</h4>
+                                <p class="tm-margin-b-20">
+                                    Aenean cursus tellus mauris, quis
+                                    consequat mauris dapibus id. Donec
+                                    scelerisque porttitor pharetra
+                                </p>
+                                <a href="#" class="tm-btn text-uppercase">Read More</a>
+                            </div>
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4">
+
+                            <div class="tm-content-box">
+                                <img src="/template/img/tm-img-310x180-3.jpg" alt="Image" class="tm-margin-b-30 img-fluid">
+                                <h4 class="tm-margin-b-20 tm-gold-text">Lorem ipsum dolor #3</h4>
+                                <p class="tm-margin-b-20">
+                                    Aenean cursus tellus mauris, quis
+                                    consequat mauris dapibus id. Donec
+                                    scelerisque porttitor pharetra
+                                </p>
+                                <a href="#" class="tm-btn text-uppercase">Detail</a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <!-- load JS files -->
+    <script src="/template/js/jquery-1.11.3.min.js"></script>
+    <script src="/template/js/bootstrap.min.js"></script>
+</body>
+</html>
+

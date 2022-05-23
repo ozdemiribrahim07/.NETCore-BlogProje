@@ -1,0 +1,33 @@
+﻿@model BlogEntity.Concrete.Category
+
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+
+<h2>Kategori Güncelle</h2>
+<br />
+
+
+@using (Html.BeginForm("Edit", "Category", FormMethod.Post))
+{
+    <h4>Kategori Adı</h4>
+    @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CategoryName, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <h4>Kategori Açıklama</h4>
+    @Html.TextAreaFor(x => x.CategoryDesc, 7, 3, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CategoryDesc, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <button class="btn btn-info">Kategoriyi Güncelle</button>
+    <input type="button" class="btn btn-danger" value="Geri Dön" onclick="location.href = '@Url.Action("Index")'" />
+
+
+}
+

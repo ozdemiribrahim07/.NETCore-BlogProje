@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AnaLayout.cshtml";
+}
+
+
+
+
+
+<section class="tm-section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-xs-center">
+                <h2 class="tm-gold-text tm-title">Hoşgeldiniz</h2>
+                <p class="tm-subtitle">Suspendisse ut magna vel velit cursus tempor ut nec nunc. Mauris vehicula, augue in tincidunt porta, purus ipsum blandit massa.</p>
+            </div>
+        </div>
+        <div class="row">
+
+            @await Component.InvokeAsync("ArticleFirst3")
+
+        </div>
+
+        <div class="row tm-margin-t-big">
+      
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                <div class="tm-2-col-left">
+
+                    <h3 class="tm-gold-text tm-title">
+                        Microsoft, Tüm Yazılımcıları Bir Çatı Altında Toplayacak .NET 6'yı Duyurdu
+                    </h3>
+                    <img src="/template/img/net6.jpg" alt="Image" class="tm-margin-b-15 img-fluid">
+                    <p>
+                        ABD merkezli teknoloji devi Microsoft, 2002 yılında dünyanın en büyük programlama platformlarından bir tanesini piyasaya sürmüştü. ".NET" olarak isimlendirilen bu platform, o yıllarda ihtiyaç duyulan neredeyse her türlü yazılımın geliştirilmesine destek sağlıyordu. Yıllar geçerken Microsoft da bu programlama platformunu geliştirdi. Yazılımcıların çok büyük bir bölümü bugün, .NET 5'i kullanarak çalışmalarını sürdürüyorlar.
+                    </p>
+                    <p>Ancak kısa bir süre sonra, yazılımcılar için devrim niteliğinde bir yenilik yaşanacak gibi görünüyor. Zira Microsoft tarafından yapılan açıklamalarla, .NET 6 isimli yeni sürüm resmen duyurulmuş oldu</p>
+                    <p class="m-b-2">
+                        Geliştiriciler için bu platformun neler sunabileceğini gösteren bir ön izleme sürümü de yayınlayan şirket, bu kez yıllardır hayal ettiği amacına ulaşmış durumda.
+                    </p>
+
+                </div>
+            </div>
+
+
+            @await Component.InvokeAsync("ArticleLast3")
+
+        </div> <!-- row -->
+
+    </div>
+</section>

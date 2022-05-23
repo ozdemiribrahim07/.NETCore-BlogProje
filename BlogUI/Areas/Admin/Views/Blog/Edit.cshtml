@@ -1,0 +1,40 @@
+﻿@model BlogEntity.Concrete.Article
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<br />
+<br />
+
+<h2>Blog Güncelle</h2>
+<br />
+
+
+@using (Html.BeginForm("Edit", "Blog", FormMethod.Post))
+{
+    <h4>Blog Başlık</h4>
+    @Html.TextBoxFor(x => x.ArticleTitle, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ArticleTitle, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <h4>Blog İçerik</h4>
+    @Html.TextAreaFor(x => x.ArticleContent, 7, 3, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.ArticleContent, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <h4>Blog Kategorisi</h4>
+    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.c, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CategoryId, "", new { @class = "text-danger" })
+    <br />
+    <br />
+
+
+    <button class="btn btn-info">Blog Güncelle</button>
+    <input type="button" class="btn btn-danger" value="Geri Dön" onclick="location.href = '@Url.Action("Index")'" />
+
+
+}
+

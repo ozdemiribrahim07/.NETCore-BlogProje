@@ -1,0 +1,127 @@
+﻿@using BlogEntity.Concrete
+@model List<Role>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<div id="modalPlaceHolder" aria-hidden="true"></div>
+
+<div class="card mb-4 mt-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        Rol Tablosu
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="blogtable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Başlık</th>
+                        <th>Düzenle</th>
+                        <th>Sil</th>
+
+
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.Name</td>
+                            <td><a href="/Admin/AdminRoll/Update/@item.Id/" class="btn btn-success">Güncelle</a></td>
+                            <td><a href="/Admin/AdminRoll/Delete/@item.Id/" class="btn btn-danger">Sil</a></td>
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+        </div>
+        <a href="/Admin/AdminRoll/Add/" class="btn btn-primary">Yeni Rol Ekle</a>
+        <a href="/Admin/AdminRoll/RoleList/" class="btn btn-primary">Kullanıcı Rol Listesi</a>
+
+    </div>
+
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('#roltable').DataTable({
+
+                dom:
+                    "<'row'<'col-sm-3'l><'col-sm-6 text-center'B><'col-sm-3'f>>" +
+                    "<'row'<'col-sm-12'tr>>" +
+                    "<'row'<'col-sm-5'i><'col-sm-7'p>>",
+                buttons: [
+                    {
+                        text: 'Ekle',
+                        attr: {
+                            id:"btnAdd"
+                        },
+                        className: 'btn btn-success',
+                        action: function (e, dt, node, config) {
+                        }
+                    },
+                    {
+                        text: 'Yenile',
+                        className: 'btn btn-warning',
+                        action: function (e, dt, node, config) {
+                        }
+                    }
+                ],
+                language: {
+                    "sDecimal": ",",
+                    "sEmptyTable": "Tabloda herhangi bir veri mevcut değil",
+                    "sInfo": "_TOTAL_ kayıttan _START_ - _END_ arasındaki kayıtlar gösteriliyor",
+                    "sInfoEmpty": "Kayıt yok",
+                    "sInfoFiltered": "(_MAX_ kayıt içerisinden bulunan)",
+                    "sInfoPostFix": "",
+                    "sInfoThousands": ".",
+                    "sLengthMenu": "Sayfada _MENU_ kayıt göster",
+                    "sLoadingRecords": "Yükleniyor...",
+                    "sProcessing": "İşleniyor...",
+                    "sSearch": "Ara:",
+                    "sZeroRecords": "Eşleşen kayıt bulunamadı",
+                    "oPaginate": {
+                        "sFirst": "İlk",
+                        "sLast": "Son",
+                        "sNext": "Sonraki",
+                        "sPrevious": "Önceki"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": artan sütun sıralamasını aktifleştir",
+                        "sSortDescending": ": azalan sütun sıralamasını aktifleştir"
+                    },
+                    "select": {
+                        "rows": {
+                            "_": "%d kayıt seçildi",
+                            "0": "",
+                            "1": "1 kayıt seçildi"
+                        }
+                    }
+                }
+
+
+
+
+
+            });
+
+            document.getElementById("btnAdd").onclick = function () {
+                location.href = '@Url.Action("Add","AdminRoll")';
+            };
+
+
+
+
+
+        });
+    </script>
+}

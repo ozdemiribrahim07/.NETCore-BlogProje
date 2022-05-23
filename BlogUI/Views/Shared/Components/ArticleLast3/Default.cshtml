@@ -1,0 +1,41 @@
+﻿
+@using BlogEntity.Concrete
+@model List<Article>
+
+
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+
+    <div class="tm-2-col-right">
+
+        <div class="tm-2-rows-md-swap">
+
+
+            <div class="row tm-2-rows-md-down-1 tm-margin-t-mid">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+
+
+                    <h2 class="tm-gold-text tm-title tm-margin-b-30">  Son Bloglar</h2>
+                    @foreach (var item in Model)
+                    {
+                        <div class="media tm-related-post">
+                            <div class="media-left media-middle">
+                                <a href="/Article/ArticleDetails/@item.ArticleId/">
+                                    <img src="@item.ArticleImage" alt="Image" class="tm-margin-b-20 img-fluid">
+                                </a>
+                            </div>
+                            <div class="media-body">
+                                <a href="/Article/ArticleDetails/@item.ArticleId/"><h4 class="media-heading tm-gold-text">@item.ArticleTitle</h4></a>
+                                <p class="">  @item.ArticleContent.Substring(0, item.ArticleContent.Substring(0, 100).LastIndexOf(" "))..</p>
+                            </div>
+
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

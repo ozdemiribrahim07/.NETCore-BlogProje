@@ -1,0 +1,68 @@
+﻿@model BlogUI.Areas.Admin.Models.UserSignUpModel
+
+@{
+    ViewData["Title"] = "UserRegister";
+    Layout = "~/Areas/Admin/Views/Shared/RegisterLayout.cshtml";
+}
+
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-7">
+            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                <div class="card-header"><h3 class="text-center font-weight-light my-4">Kayıt Ol</h3></div>
+                <div class="card-body">
+                    <form asp-action="UserRegister" asp-controller="Account" method="post">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="small mb-1" asp-for="UserName">Kullanıcı Adı</label>
+                                    <input class="form-control py-4" asp-for="UserName" type="text" placeholder="Kullanıcı Adı Giriniz.." />
+                                    <span asp-validation-for="UserName" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="small mb-1" asp-for="Email">Email</label>
+                            <input class="form-control py-4" asp-for="Email" type="email" aria-describedby="emailHelp" placeholder="Mail Adresi Giriniz.." />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="small mb-1" asp-for="Password">Şifre</label>
+                                    <input class="form-control py-4" asp-for="Password" type="password" placeholder="Şifre Giriniz.." />
+                                </div>
+                                <span asp-validation-for="Password" class="text-danger"></span>
+
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="small mb-1" asp-for="PasswordConfirm">Tekrar Şifre</label>
+                                    <input class="form-control py-4" asp-for="PasswordConfirm" type="password" placeholder="Tekrar Şifre" />
+                                </div>
+                                <span asp-validation-for="PasswordConfirm" class="text-danger"></span>
+
+                            </div>
+                        </div>
+                        <div class="form-group mt-4 mb-0"><button class="btn btn-primary btn-block" type="submit">Kayıt Ol</button></div>
+                    </form>
+                </div>
+                <div class="card-footer text-center">
+                    <div class="small"><a href="/Admin/Account/Login">Hesabın var mı? Giriş sayfasına git</a></div>
+                </div>
+
+                <div class="text-danger" asp-validation-summary="ModelOnly">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
+
